@@ -107,4 +107,3 @@ This project helped me better understand how real-world dashboards aggregate inf
 
 Xun Zhao  
 University of Connecticut  
-Applied Mathematics  
