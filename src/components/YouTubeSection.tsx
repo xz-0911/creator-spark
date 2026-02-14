@@ -34,10 +34,10 @@ const YouTubeSection = ({ keyword }: YouTubeSectionProps) => {
     <section className="mb-10">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-display text-2xl font-bold text-foreground">
-          🎬 {isRecommended ? "推荐视频" : "YouTube Videos"}
+          🎬 {isRecommended ? "Recommended Videos" : "YouTube Videos"}
         </h2>
         <span className="text-sm text-muted-foreground">
-          {isRecommended ? "为你推荐" : "来自 YouTube"}
+          {isRecommended ? "Picked for you" : "From YouTube"}
         </span>
       </div>
 
@@ -57,7 +57,7 @@ const YouTubeSection = ({ keyword }: YouTubeSectionProps) => {
 
       {error && (
         <div className="glass-card rounded-xl p-6 text-center">
-          <p className="text-destructive font-medium">YouTube 加载失败</p>
+          <p className="text-destructive font-medium">Failed to load YouTube</p>
           <p className="text-sm text-muted-foreground mt-1">{error}</p>
         </div>
       )}
@@ -93,7 +93,7 @@ const YouTubeSection = ({ keyword }: YouTubeSectionProps) => {
                   <ExternalLink className="h-3 w-3 text-muted-foreground shrink-0" />
                 </div>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {new Date(item.snippet.publishedAt).toLocaleDateString("zh-CN")}
+                  {new Date(item.snippet.publishedAt).toLocaleDateString("en-US")}
                 </p>
               </div>
             </a>

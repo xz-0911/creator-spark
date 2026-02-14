@@ -27,18 +27,18 @@ const HeroSection = ({ searchQuery, onSearch, onRefresh }: HeroSectionProps) => 
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
       <div className="relative z-10 flex flex-col justify-end h-full p-8 pb-10">
         <h1 className="font-display text-4xl md:text-5xl font-bold mb-2 animate-fade-up">
-          <span className="gradient-text">创作灵感</span>
-          <span className="text-foreground"> 每日速递</span>
+          <span className="gradient-text">Daily Inspiration</span>
+          <span className="text-foreground"> Hub</span>
         </h1>
         <p className="text-muted-foreground text-lg mb-6 max-w-xl animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          YouTube · Reddit · GIPHY — 一站掌握创作灵感
+          YouTube · GIPHY — Your creative inspiration, all in one place
         </p>
         <form onSubmit={handleSubmit} className="flex gap-2 max-w-lg animate-fade-up" style={{ animationDelay: "0.2s" }}>
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <input
               type="text"
-              placeholder="搜索视频、话题、GIF..."
+              placeholder="Search videos, GIFs..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               className="w-full pl-12 pr-4 py-3 rounded-xl bg-secondary/80 backdrop-blur-sm border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -48,13 +48,13 @@ const HeroSection = ({ searchQuery, onSearch, onRefresh }: HeroSectionProps) => 
             type="submit"
             className="px-5 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
           >
-            搜索
+            Search
           </button>
           <button
             type="button"
             onClick={onRefresh}
             className="p-3 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
-            title="刷新"
+            title="Refresh"
           >
             <RefreshCw className="h-5 w-5" />
           </button>
