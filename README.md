@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# Creator Spark – Multi-Source Content Dashboard
 
-## Project info
+Portfolio Project #2  
+Course Assignment – Multi-Source Content Dashboard  
+Due: Feb 14  
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Project Overview
 
-## How can I edit this code?
+Creator Spark is a web-based content inspiration dashboard designed for digital content creators. It aggregates data from multiple public APIs into a unified interface to help users quickly discover trending videos and visual inspiration in one place.
 
-There are several ways of editing your application.
+Instead of switching between platforms to find ideas, users can search and filter content from different sources within a single-page application.
 
-**Use Lovable**
+## Product Brief 
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Creator Spark solves a common workflow problem faced by social media creators and content strategists: finding fresh inspiration across multiple platforms takes time and requires constant tab-switching. Creators often check YouTube for trending videos and GIPHY for visual content separately. This dashboard brings those sources together in one unified interface.
 
-Changes made via Lovable will be committed automatically to this repo.
+The target users are independent content creators, YouTubers, social media managers, and marketing students who need daily inspiration for short-form videos, reels, or social posts. These users typically look for trending topics, visual elements, and viral formats to adapt into their own content.
 
-**Use your preferred IDE**
+This tool improves their workflow by centralizing content discovery. Users can search across APIs, filter results, and instantly refresh data without leaving the page. It reduces friction in the ideation phase and helps creators move from research to production more quickly.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Unlike general news aggregators, Creator Spark is focused specifically on creative inspiration rather than information overload. The UI highlights visuals and trending media instead of long text articles, making it more aligned with how digital creators actually work.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## APIs Used
 
-Follow these steps:
+### 1. YouTube Data API v3
+Documentation: https://developers.google.com/youtube/v3
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+**Data Pulled:**
+- Video titles
+- Thumbnails
+- Channel names
+- Video IDs for playback
+- Search results
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**Why Chosen:**
+YouTube is one of the primary platforms for content trends. It provides searchable, structured data for trending and keyword-based discovery.
 
-# Step 3: Install the necessary dependencies.
-npm i
+**Limitations:**
+- Daily quota limits
+- Requires API key
+- No direct "trending" endpoint without additional filtering
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### 2. GIPHY API
+Documentation: https://developers.giphy.com/docs/api/
 
-**Edit a file directly in GitHub**
+**Data Pulled:**
+- Trending GIFs
+- GIF URLs
+- Titles and source attribution
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+**Why Chosen:**
+GIPHY provides quick visual inspiration and trending media formats, which are useful for short-form content creators.
 
-**Use GitHub Codespaces**
+**Limitations:**
+- Rate limits
+- Some GIF metadata is minimal
+- Search results depend heavily on keyword quality
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Functional Features
 
-## What technologies are used for this project?
+- Integrates 2 public APIs
+- Unified content display
+- Search functionality across sources
+- Manual refresh button for updated content
+- Source attribution displayed for each item
+- Loading states while fetching data
+- Error handling with user-friendly messages
+- Responsive design for desktop and mobile
+- Single-page application architecture
 
-This project is built with:
+## Technical Implementation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- React + TypeScript
+- Tailwind CSS for UI styling
+- Vite for build tooling
+- API calls handled with asynchronous functions
+- Error handling with conditional rendering
+- Loading states during data fetch
 
-## How can I deploy this project?
+API keys are stored securely and excluded from version control.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Reflection
 
-## Can I connect a custom domain to my Lovable project?
+Working with multiple APIs was more challenging than expected because each API returns data in a different structure. The YouTube API provides structured video metadata, while the GIPHY API focuses on media URLs and simplified metadata. Normalizing these responses into a unified UI required careful data mapping and debugging.
 
-Yes, you can!
+Handling API quotas and error states was another challenge. APIs occasionally fail or return empty responses, so building graceful fallback messages was important to maintain a good user experience.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+In version 2.0, I would add a third API such as Reddit or News API to expand cross-platform trend tracking. I would also implement saved collections so users could bookmark inspiring content.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project helped me understand how real products aggregate data from different services and how important UX decisions are when presenting multi-source content. API integration is not just about fetching data — it is about structuring it in a way that makes sense to the end user.
+
+## Author
+
+Xun Zhao  
+University of Connecticut  
+Applied Mathematics  
