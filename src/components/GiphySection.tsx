@@ -31,10 +31,10 @@ const GiphySection = ({ keyword }: GiphySectionProps) => {
     <section className="mb-10">
       <div className="flex items-center justify-between mb-5">
         <h2 className="font-display text-2xl font-bold text-foreground">
-          ✨ {isRecommended ? "热门 GIF" : "GIF Inspiration"}
+          ✨ {isRecommended ? "Trending GIFs" : "GIF Inspiration"}
         </h2>
         <span className="text-sm text-muted-foreground">
-          {isRecommended ? "正在流行" : "来自 GIPHY"}
+          {isRecommended ? "What's popular" : "From GIPHY"}
         </span>
       </div>
 
@@ -48,7 +48,7 @@ const GiphySection = ({ keyword }: GiphySectionProps) => {
 
       {error && (
         <div className="glass-card rounded-xl p-6 text-center">
-          <p className="text-destructive font-medium">GIPHY 加载失败</p>
+          <p className="text-destructive font-medium">Failed to load GIPHY</p>
           <p className="text-sm text-muted-foreground mt-1">{error}</p>
         </div>
       )}

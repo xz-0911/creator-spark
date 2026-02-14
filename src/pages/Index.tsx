@@ -21,7 +21,7 @@ const Index = () => {
             <span className="font-display font-bold text-lg text-foreground">InspirationHub</span>
           </div>
           <div className="text-xs text-muted-foreground">
-            内容创作者的灵感引擎
+            Inspiration engine for content creators
           </div>
         </div>
       </header>
@@ -39,7 +39,7 @@ const Index = () => {
 
       <footer className="border-t border-border py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center text-xs text-muted-foreground">
-          © 2026 InspirationHub · 为内容创作者打造
+          © 2026 InspirationHub · Built for content creators
         </div>
       </footer>
     </div>
