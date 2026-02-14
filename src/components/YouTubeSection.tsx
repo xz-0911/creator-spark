@@ -21,27 +21,24 @@ interface YTResponse {
   items: YTItem[];
 }
 
+const DEFAULT_QUERY = "trending creative inspiration 2026";
+
 const YouTubeSection = ({ keyword }: YouTubeSectionProps) => {
-  const url = keyword
-    ? `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=8&q=${encodeURIComponent(keyword)}&key=${YOUTUBE_KEY}`
-    : null;
+  const query = keyword || DEFAULT_QUERY;
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=8&q=${encodeURIComponent(query)}&key=${YOUTUBE_KEY}`;
 
   const { data, loading, error } = useCachedFetch<YTResponse>(url);
-
-  if (!keyword) {
-    return (
-      <section className="mb-10">
-        <h2 className="font-display text-2xl font-bold text-foreground mb-5">🎬 YouTube Videos</h2>
-        <p className="text-muted-foreground">输入关键词搜索 YouTube 视频</p>
-      </section>
-    );
-  }
+  const isRecommended = !keyword;
 
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-5">
-        <h2 className="font-display text-2xl font-bold text-foreground">🎬 YouTube Videos</h2>
-        <span className="text-sm text-muted-foreground">来自 YouTube</span>
+        <h2 className="font-display text-2xl font-bold text-foreground">
+          🎬 {isRecommended ? "推荐视频" : "YouTube Videos"}
+        </h2>
+        <span className="text-sm text-muted-foreground">
+          {isRecommended ? "为你推荐" : "来自 YouTube"}
+        </span>
       </div>
 
       {loading && (

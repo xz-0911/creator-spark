@@ -22,24 +22,20 @@ interface GiphyResponse {
 const GiphySection = ({ keyword }: GiphySectionProps) => {
   const url = keyword
     ? `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_KEY}&q=${encodeURIComponent(keyword)}&limit=12&rating=g`
-    : null;
+    : `https://api.giphy.com/v1/gifs/trending?api_key=${GIPHY_KEY}&limit=12&rating=g`;
 
   const { data, loading, error } = useCachedFetch<GiphyResponse>(url);
-
-  if (!keyword) {
-    return (
-      <section className="mb-10">
-        <h2 className="font-display text-2xl font-bold text-foreground mb-5">✨ GIF Inspiration</h2>
-        <p className="text-muted-foreground">输入关键词搜索 GIF 灵感</p>
-      </section>
-    );
-  }
+  const isRecommended = !keyword;
 
   return (
     <section className="mb-10">
       <div className="flex items-center justify-between mb-5">
-        <h2 className="font-display text-2xl font-bold text-foreground">✨ GIF Inspiration</h2>
-        <span className="text-sm text-muted-foreground">来自 GIPHY</span>
+        <h2 className="font-display text-2xl font-bold text-foreground">
+          ✨ {isRecommended ? "热门 GIF" : "GIF Inspiration"}
+        </h2>
+        <span className="text-sm text-muted-foreground">
+          {isRecommended ? "正在流行" : "来自 GIPHY"}
+        </span>
       </div>
 
       {loading && (
