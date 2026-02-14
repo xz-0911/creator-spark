@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react";
 import HeroSection from "@/components/HeroSection";
 import YouTubeSection from "@/components/YouTubeSection";
-import RedditSection from "@/components/RedditSection";
 import GiphySection from "@/components/GiphySection";
 import { Clapperboard } from "lucide-react";
 
@@ -15,7 +14,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -28,7 +26,6 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
         <HeroSection
           searchQuery={keyword}
@@ -37,11 +34,9 @@ const Index = () => {
         />
 
         <YouTubeSection key={`yt-${refreshKey}`} keyword={keyword} />
-        <RedditSection key={`rd-${refreshKey}`} />
         <GiphySection key={`gi-${refreshKey}`} keyword={keyword} />
       </main>
 
-      {/* Footer */}
       <footer className="border-t border-border py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center text-xs text-muted-foreground">
           © 2026 InspirationHub · 为内容创作者打造
